@@ -1,10 +1,19 @@
 from fastapi import FastAPI
-import pickle
+from fastapi.middleware.cors import CORSMiddleware
 from model.readings_model import preprocess_readings_input_readings,xgboost
 from model.lifestyle_model import preprocess_readings_input_lifestyle,run_model
 from pydantic import BaseModel
+
 app = FastAPI()
 
+origins=["*"]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=origins,
+    allow_headers=origins
+)
 
 class ReadingsInput(BaseModel):
     age: int
