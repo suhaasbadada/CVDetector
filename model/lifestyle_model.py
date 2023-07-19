@@ -55,10 +55,10 @@ def preprocess_readings_input_lifestyle(json):
     ordered_input = {key: json[key] for key in order if key in json}
     return ordered_input
 
-with open("model\\lifestyle_scaler.pkl", 'rb') as file:
+with open("model/lifestyle_scaler.pkl", 'rb') as file:
     scaler = pickle.load(file)
 
-with open("model\\lbgm_model.pkl", 'rb') as file:
+with open("model/lbgm_model.pkl", 'rb') as file:
     lbgm = pickle.load(file)
 
 def run_model(json,model=lbgm):
