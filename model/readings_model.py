@@ -52,10 +52,10 @@ def preprocess_readings_input_readings(json):
     ordered_input = {key: json[key] for key in order if key in json}
     return ordered_input
 
-with open("model\\readings_scaler.pkl", 'rb') as file:
+with open("model/readings_scaler.pkl", 'rb') as file:
     scaler = pickle.load(file)
 
-with open("model\\xg_model.pkl", 'rb') as file:
+with open("model/xg_model.pkl", 'rb') as file:
     xg_model = pickle.load(file)
 
 def xgboost(json,xg_model=xg_model):
