@@ -67,6 +67,6 @@ def run_model(json,model=lbgm):
     predicted=model.predict(obj_scaled)[0]
     obj={}
     obj[str(round(predicted))]=predicted
-    obj['class']=round(predicted)
     obj[str(abs(1-round(predicted)))]=1-predicted
+    obj['class']=round(predicted)
     return obj
